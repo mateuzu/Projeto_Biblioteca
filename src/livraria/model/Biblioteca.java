@@ -27,20 +27,11 @@ public class Biblioteca extends Estante {
 	
 	@Override
 	public void adicionarLivro (String nome) {
-		boolean teste = false;
 		Livro livro = new Livro(nome, gerarNumero());
-		for (Livro book : super.getLivros()) {
-			if(book.getCodigo() == numero) {
-				teste = true;
-			}
-		}
-		if(teste != true) {
-			super.getLivros().add(livro);
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Livro " + livro.getNome() + " adicionado!" + Cores.TEXT_RESET);
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Código " + livro.getCodigo() + Cores.TEXT_RESET);
-		} else {
-			System.out.println("Já existe um livro com este código!");
-		}
+		
+		super.getLivros().add(livro);
+		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Livro " + livro.getNome() + " adicionado!" + Cores.TEXT_RESET);
+		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Código " + livro.getCodigo() + Cores.TEXT_RESET);
 	}
 	
 	@Override
