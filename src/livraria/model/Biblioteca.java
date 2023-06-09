@@ -123,7 +123,7 @@ public class Biblioteca extends Estante {
 	}
 	
 	public int gerarNumero() {
-		return ++numero;
+		return ++ numero;
 	}
 	
 	public void aguardar() {
@@ -132,7 +132,7 @@ public class Biblioteca extends Estante {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
         	Thread.currentThread().interrupt(); 
-            System.out.println("Erro inesperado!");
+            System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Erro inesperado!");
             return;
         }
     }

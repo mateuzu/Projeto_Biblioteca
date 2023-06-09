@@ -14,7 +14,7 @@ import livraria.util.Cores;
 public class TestaBiblioteca {
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 		List<Livro> livros = new ArrayList<>();
 		int opcao = 1;
@@ -22,15 +22,15 @@ public class TestaBiblioteca {
 		livros.add(new Livro("Diario de um banana", 2));
 		livros.add(new Livro("O alquimista", 3));
 		Biblioteca b1 = new Biblioteca(livros);
-		
+
 		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Bem vindo à biblioteca!" + Cores.TEXT_RESET);
 		System.out.print("Informe seu usuário: ");
 		String usuario = sc.nextLine();
 		System.out.print("Informe sua senha: ");
 		int senha = sc.nextInt();
 		Usuario user = new Usuario(usuario, senha);
-		
-		while(user.verificarSenha(usuario, senha) == false) {
+
+		while (user.verificarSenha(usuario, senha) == false) {
 			System.out.print("Informe seu usuário: ");
 			sc.nextLine();
 			usuario = sc.nextLine();
@@ -38,28 +38,24 @@ public class TestaBiblioteca {
 			senha = sc.nextInt();
 		}
 		user.keyPress();
-		while(true) {
+		while (true) {
 			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\n*****************************************"
-					+ "\n* Menu:                                 *"
-					+ "\n* 1 - Cadastrar aluno                   *"
-					+ "\n* 2 - Visualizar cadastro do aluno      *"
-					+ "\n* 3 - Adicionar livro                   *"
-					+ "\n* 4 - Retirar um livro pelo código      *"
-					+ "\n* 5 - Devolver um livro                 *"
-					+ "\n* 6 - Encontrar um livro pelo código    *"
-					+ "\n* 7 - Listar livros disponíveis         *"
-					+ "\n* 8 - Sair                              *"
-					+ "\n*****************************************" + Cores.TEXT_RESET);
+					+ "\n* Menu:                                 *" + "\n* 1 - Cadastrar aluno                   *"
+					+ "\n* 2 - Visualizar cadastro do aluno      *" + "\n* 3 - Adicionar livro                   *"
+					+ "\n* 4 - Retirar um livro pelo código      *" + "\n* 5 - Devolver um livro                 *"
+					+ "\n* 6 - Encontrar um livro pelo código    *" + "\n* 7 - Listar livros disponíveis         *"
+					+ "\n* 8 - Sair                              *" + "\n*****************************************"
+					+ Cores.TEXT_RESET);
 			System.out.print("\nEntre com a opção desejada: ");
 			try {
 				opcao = sc.nextInt();
-			} catch(InputMismatchException e) {
+			} catch (InputMismatchException e) {
 				System.err.println("Digite valores inteiros! ");
 				sc.nextLine();
 				opcao = 0;
 			}
 
-			switch(opcao) {
+			switch (opcao) {
 			case 1:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Cadastrar aluno: \n" + Cores.TEXT_RESET);
 				sc.nextLine();
@@ -78,7 +74,7 @@ public class TestaBiblioteca {
 				sc.nextLine();
 				System.out.print("Informe o nome do livro: ");
 				String nomeLivro = sc.nextLine();
-			
+
 				b1.adicionarLivro(nomeLivro);
 				keyPress();
 				break;
@@ -89,7 +85,7 @@ public class TestaBiblioteca {
 				b1.retirarLivro(cod);
 				keyPress();
 				break;
-			case 5: 
+			case 5:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Devolver livro: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com o código do livro que deseja devolver: ");
 				cod = sc.nextInt();
@@ -119,21 +115,21 @@ public class TestaBiblioteca {
 			}
 			b1.aguardar();
 		}
-		
+
 	}
-	
+
 	public static void encerrar() {
-        System.out.println("Encerrando programa...");
-        try {
-            Thread.sleep(3000); 
-        } catch (InterruptedException e) {
-        	Thread.currentThread().interrupt(); 
-            System.out.println("Erro ao encerrar programa!");
-            return;
-        }
+		System.out.println("Encerrando programa...");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			System.out.println("Erro ao encerrar programa!");
+			return;
+		}
 		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\nPrograma encerrado!" + Cores.TEXT_RESET);
-    }
-	
+	}
+
 	public static void keyPress() {
 		try {
 			System.out.println(Cores.TEXT_RESET + "\nPressione enter para continuar...");
@@ -142,5 +138,5 @@ public class TestaBiblioteca {
 			System.out.println("Você pressionou uma tecla diferente de enter!");
 		}
 	}
-	
+
 }
