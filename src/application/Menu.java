@@ -1,6 +1,6 @@
 package application;
 
-import livraria.controller.Usuario;
+import livraria.controller.Bibliotecario;
 import livraria.model.Biblioteca;
 import livraria.model.Livro;
 import livraria.util.Cores;
@@ -27,7 +27,7 @@ public class Menu {
 		String usuario = sc.nextLine();
 		System.out.print("Informe sua senha: ");
 		int senha = sc.nextInt();
-		Usuario user = new Usuario(usuario, senha);
+		Bibliotecario user = new Bibliotecario(usuario, senha);
 
 		while (user.verificarSenha(usuario, senha) == false) {
 			System.out.print("Informe seu usuário: ");
@@ -36,14 +36,14 @@ public class Menu {
 			System.out.print("Informe sua senha: ");
 			senha = sc.nextInt();
 		}
-		user.keyPress();
 		while (true) {
-			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\n*****************************************"
-					+ "\n* Menu:                                 *" + "\n* 1 - Cadastrar aluno                   *"
-					+ "\n* 2 - Visualizar cadastro do aluno      *" + "\n* 3 - Adicionar livro                   *"
-					+ "\n* 4 - Retirar um livro pelo código      *" + "\n* 5 - Devolver um livro                 *"
-					+ "\n* 6 - Encontrar um livro pelo código    *" + "\n* 7 - Listar livros disponíveis         *"
-					+ "\n* 8 - Sair                              *" + "\n*****************************************"
+			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT 
+					+ "\n*****************************************"	+ "\n* Menu:                                 *" 
+					+ "\n* 1 - Cadastrar alune                   *"	+ "\n* 2 - Visualizar cadastros dos alunes   *"
+					+ "\n* 3 - Remover alune                     *"	+ "\n* 4 - Adicionar livro                   *"
+					+ "\n* 5 - Retirar um livro pelo código      *"	+ "\n* 6 - Devolver um livro                 *"
+					+ "\n* 7 - Encontrar um livro pelo código    *" + "\n* 8 - Listar livros disponíveis         *"
+					+ "\n* 9 - Sair                              *" + "\n*****************************************"
 					+ Cores.TEXT_RESET);
 			System.out.print("\nEntre com a opção desejada: ");
 			try {
@@ -61,55 +61,62 @@ public class Menu {
 				System.out.print("Informe o nome do aluno: ");
 				String nome = sc.nextLine();
 				user.cadastrarAluno(nome);
-				keyPress();
+				user.keyPress();
 				break;
 			case 2:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Visualizar cadastro alunos: \n" + Cores.TEXT_RESET);
 				user.listarCadastros();
-				keyPress();
+				user.keyPress();
 				break;
 			case 3:
-				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Adicionar livro: \n" + Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_BLUE_BOLD_BRIGHT + "Remover alune: \n" + Cores.TEXT_RESET);
+				System.out.print("Entre com a matricula do alune que deseja retirar: ");
+				int matricula = sc.nextInt();
+				user.removerAluno(matricula);
+				user.keyPress();
+				break;
+			case 4:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Adicionar livro \n" + Cores.TEXT_RESET);
 				sc.nextLine();
 				System.out.print("Informe o nome do livro: ");
 				String nomeLivro = sc.nextLine();
 
 				b1.adicionarLivro(nomeLivro);
-				keyPress();
+				user.keyPress();
 				break;
-			case 4:
+			case 5:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Retirar livro: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com o código do livro que deseja retirar: ");
 				int cod = sc.nextInt();
 				b1.retirarLivro(cod);
-				keyPress();
+				user.keyPress();
 				break;
-			case 5:
+			case 6:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Devolver livro: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com o código do livro que deseja devolver: ");
 				cod = sc.nextInt();
 				b1.devolverLivro(cod);
-				keyPress();
+				user.keyPress();
 				break;
-			case 6:
+			case 7:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Encontrar livro: \n" + Cores.TEXT_RESET);
 				System.out.print("Informe o código do livro: ");
 				cod = sc.nextInt();
 				b1.encontrarLivro(cod);
-				keyPress();
-				break;
-			case 7:
-				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Listar livros: \n" + Cores.TEXT_RESET);
-				b1.listarLivros();
-				keyPress();
+				user.keyPress();
 				break;
 			case 8:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Listar livros: \n" + Cores.TEXT_RESET);
+				b1.listarLivros();
+				user.keyPress();
+				break;
+			case 9:
 				encerrar();
 				sc.close();
 				System.exit(0);
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "\nOpção inválida!" + Cores.TEXT_RESET);
-				keyPress();
+				user.keyPress();
 				break;
 			}
 			b1.aguardar();
@@ -128,14 +135,4 @@ public class Menu {
 		}
 		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\nPrograma encerrado!" + Cores.TEXT_RESET);
 	}
-
-	public static void keyPress() {
-		try {
-			System.out.println(Cores.TEXT_RESET + "\nPressione enter para continuar...");
-			System.in.read();
-		} catch (IOException e) {
-			System.out.println("Você pressionou uma tecla diferente de enter!");
-		}
-	}
-
 }

@@ -3,13 +3,13 @@ package livraria.model;
 public class Livro {
 	
 	private String nome;
-	private Integer codigo;
+	private int codigo;
 	
 	public Livro() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Livro(String nome, Integer codigo) {
+	public Livro(String nome, int codigo) {
 		this.nome = nome;
 		this.codigo = codigo;
 	}
@@ -26,7 +26,7 @@ public class Livro {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 	
