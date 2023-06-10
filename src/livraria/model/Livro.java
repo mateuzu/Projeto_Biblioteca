@@ -5,9 +5,7 @@ public class Livro {
 	private String nome;
 	private int codigo;
 	
-	public Livro() {
-		// TODO Auto-generated constructor stub
-	}
+	public Livro() {}
 
 	public Livro(String nome, int codigo) {
 		this.nome = nome;
@@ -22,7 +20,7 @@ public class Livro {
 		this.nome = nome;
 	}
 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 

@@ -6,9 +6,7 @@ import java.util.List;
 public abstract class Estante {
 	private List<Livro> livros = new ArrayList<>();
 	
-	public Estante() {
-		// TODO Auto-generated constructor stub
-	}
+	public Estante(){}
 
 	public Estante(List<Livro> livros) {
 		this.livros = livros;

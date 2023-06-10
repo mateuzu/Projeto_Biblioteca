@@ -13,16 +13,18 @@ import java.util.Scanner;
 public class Menu {
 
 	public static void main(String[] args) {
-
 		Scanner sc = new Scanner(System.in);
-		List<Livro> livros = new ArrayList<>();
 		int opcao = 1;
+
+		List<Livro> livros = new ArrayList<>();
+		
 		livros.add(new Livro("Dom quixote", 1));
 		livros.add(new Livro("Diario de um banana", 2));
 		livros.add(new Livro("O alquimista", 3));
 		Biblioteca b1 = new Biblioteca(livros);
 
 		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "BEM VINDO À BIBLIOTECA!" + Cores.TEXT_RESET);
+
 		System.out.print("Informe seu usuário: ");
 		String usuario = sc.nextLine();
 		System.out.print("Informe sua senha: ");
@@ -36,6 +38,10 @@ public class Menu {
 			System.out.print("Informe sua senha: ");
 			senha = sc.nextInt();
 		}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 		while (true) {
 			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT 
 					+ "\n*****************************************"	+ "\n* Menu:                                 *" 
@@ -64,11 +70,12 @@ public class Menu {
 				user.keyPress();
 				break;
 			case 2:
-				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Visualizar cadastro alunos: \n" + Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Visualizar cadastro alunos \n" + Cores.TEXT_RESET);
 				user.listarCadastros();
 				user.keyPress();
 				break;
 			case 3:
+<<<<<<< HEAD
 				System.out.println(Cores.TEXT_BLUE_BOLD_BRIGHT + "Remover alune: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com a matricula do alune que deseja retirar: ");
 				int matricula = sc.nextInt();
@@ -76,6 +83,8 @@ public class Menu {
 				user.keyPress();
 				break;
 			case 4:
+=======
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Adicionar livro \n" + Cores.TEXT_RESET);
 				sc.nextLine();
 				System.out.print("Informe o nome do livro: ");
@@ -84,26 +93,49 @@ public class Menu {
 				b1.adicionarLivro(nomeLivro);
 				user.keyPress();
 				break;
+<<<<<<< HEAD
 			case 5:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Retirar livro: \n" + Cores.TEXT_RESET);
+=======
+			case 4:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Retirar livro \n" + Cores.TEXT_RESET);
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 				System.out.print("Entre com o código do livro que deseja retirar: ");
 				int cod = sc.nextInt();
 				b1.retirarLivro(cod);
 				user.keyPress();
 				break;
+<<<<<<< HEAD
 			case 6:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Devolver livro: \n" + Cores.TEXT_RESET);
+=======
+			case 5:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Devolver livro \n" + Cores.TEXT_RESET);
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 				System.out.print("Entre com o código do livro que deseja devolver: ");
 				cod = sc.nextInt();
 				b1.devolverLivro(cod);
 				user.keyPress();
 				break;
+<<<<<<< HEAD
 			case 7:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Encontrar livro: \n" + Cores.TEXT_RESET);
+=======
+			case 6:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Encontrar livro \n" + Cores.TEXT_RESET);
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 				System.out.print("Informe o código do livro: ");
 				cod = sc.nextInt();
 				b1.encontrarLivro(cod);
 				user.keyPress();
+<<<<<<< HEAD
+=======
+				break;
+			case 7:
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Listar livros: \n" + Cores.TEXT_RESET);
+				b1.listarLivros();
+				user.keyPress();
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 				break;
 			case 8:
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Listar livros: \n" + Cores.TEXT_RESET);
@@ -135,4 +167,10 @@ public class Menu {
 		}
 		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\nPrograma encerrado!" + Cores.TEXT_RESET);
 	}
+<<<<<<< HEAD
+=======
+
+	
+
+>>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 }
