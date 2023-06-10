@@ -55,13 +55,6 @@ public class Biblioteca extends Estante {
 		if (livroRetirado != null && foiDevolvido == false) {
 			super.getLivros().remove(livroRetirado);
 			livrosRetirados.add(livroRetirado);
-<<<<<<< HEAD
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT +  "O livro " + livroRetirado.getNome() + " foi retirado com sucesso! Boa leitura!");
-			LocalDate dataDevolucao = LocalDate.now().plusWeeks(1);
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "AVISO! Data de devolução: até " + fmt.format(dataDevolucao) + Cores.TEXT_RESET);
-		} else if(foiDevolvido == true) {
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroRetirado.getNome() + " já foi retirado!");
-=======
 			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O livro " + livroRetirado.getNome()
 					+ " foi retirado com sucesso!" + Cores.TEXT_RESET);
 			LocalDate dataDevolucao = LocalDate.now().plusWeeks(1);
@@ -70,7 +63,6 @@ public class Biblioteca extends Estante {
 		} else if (foiDevolvido == true) {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroRetirado.getNome() + " já foi retirado!"
 					+ Cores.TEXT_RESET);
->>>>>>> 6268098a4be2d49ae21d54bed1204f27b36f6ff6
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Nenhum livro com o código " + cod + " foi encontrado!"
 					+ Cores.TEXT_RESET);
@@ -114,21 +106,12 @@ public class Biblioteca extends Estante {
 				livroEncontrado = livro;
 			}
 		}
-<<<<<<< HEAD
-		
-		if(livroEncontrado != null && foiDevolvido == false) {
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Livro encontrado, nome: " + livroEncontrado.getNome() + ", código: " + livroEncontrado.getCodigo());
-		} else if(foiDevolvido == true) {
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroEncontrado.getNome() + " já foi retirado!");
-=======
-
 		if (livroEncontrado != null && foiDevolvido == false) {
 			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Livro encontrado, nome: " + livroEncontrado.getNome()
 					+ ", código: " + livroEncontrado.getCodigo() + Cores.TEXT_RESET);
 		} else if (foiDevolvido == true) {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroEncontrado.getNome() + " já foi retirado!"
 					+ Cores.TEXT_RESET);
->>>>>>> 6268098a4be2d49ae21d54bed1204f27b36f6ff6
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Não foi encontrado nenhum livro com o código: " + cod
 					+ Cores.TEXT_RESET);

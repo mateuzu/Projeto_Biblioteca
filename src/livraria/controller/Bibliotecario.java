@@ -27,8 +27,8 @@ public class Bibliotecario implements Cadastro {
 		return Usuario;
 	}
 
-	public void setUsuario(String Bibliotecario) {
-		this.Usuario = Bibliotecario;
+	public void setUsuario(String Usuario) {
+		this.Usuario = Usuario;
 	}
 
 	public int getSenha() {
@@ -40,13 +40,8 @@ public class Bibliotecario implements Cadastro {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public boolean verificarSenha(String Usuario, int senha) {
-		if(Usuario.equals("Admin") && senha == 123) {
-=======
-	public boolean verificarSenha(String Bibliotecario, int senha) {
-		if (Bibliotecario.equals("teste") && senha == 123) {
->>>>>>> 6268098a4be2d49ae21d54bed1204f27b36f6ff6
+		if (Usuario.equals("Admin") && senha == 123) {
 			aguardarSenha();
 			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin sucedido!\n" + Cores.TEXT_RESET);
 			keyPress();
