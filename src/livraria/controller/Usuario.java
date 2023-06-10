@@ -11,15 +11,13 @@ import livraria.util.Cores;
 
 public class Usuario implements Cadastro {
 	private String usuario;
-	private Integer senha;
+	private int senha;
 	private int numero = 0;
 	private List<Aluno> alunos = new ArrayList<>();
 	
-	public Usuario() {
-		// TODO Auto-generated constructor stub
-	}
+	public Usuario() {}
 
-	public Usuario(String usuario, Integer senha) {
+	public Usuario(String usuario, int senha) {
 		this.usuario = usuario;
 		this.senha = senha;
 	}
@@ -32,19 +30,19 @@ public class Usuario implements Cadastro {
 		this.usuario = usuario;
 	}
 
-	public Integer getSenha() {
+	public int getSenha() {
 		return senha;
 	}
 
-	public void setSenha(Integer senha) {
+	public void setSenha(int senha) {
 		this.senha = senha;
 	}
 
 	@Override
-	public boolean verificarSenha(String usuario, Integer senha) {
+	public boolean verificarSenha(String usuario, int senha) {
 		if(usuario.equals("teste") && senha == 123) {
 			aguardarSenha();
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login sucecido!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login sucedido!" + Cores.TEXT_RESET);
 			keyPress();
 			return true;
 		} else {
@@ -72,7 +70,7 @@ public class Usuario implements Cadastro {
 	}
 
 	@Override
-	public void removerAluno(Integer matricula) {
+	public void removerAluno(int matricula) {
 		Aluno alunoRemovido = null;
 		for(Aluno aluno : alunos) {
 			if(aluno.getMatricula() == matricula) {
@@ -113,6 +111,4 @@ public class Usuario implements Cadastro {
 	public int gerarNumero() {
 		return ++numero;
 	}
-	
-	
 }

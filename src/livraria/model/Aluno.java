@@ -5,9 +5,7 @@ public class Aluno {
 	private String nome;
 	private Integer matricula;
 	
-	public Aluno() {
-		// TODO Auto-generated constructor stub
-	}
+	public Aluno() {}
 
 	public Aluno(String nome, Integer matricula) {
 		this.nome = nome;
