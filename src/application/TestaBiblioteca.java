@@ -11,7 +11,7 @@ import livraria.model.Biblioteca;
 import livraria.model.Livro;
 import livraria.util.Cores;
 
-public class TestaBiblioteca {
+public class Menu {
 
 	public static void main(String[] args) {
 
