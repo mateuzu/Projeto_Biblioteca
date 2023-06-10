@@ -53,11 +53,11 @@ public class Biblioteca extends Estante {
 		if(livroRetirado != null && foiDevolvido == false) {
 			super.getLivros().remove(livroRetirado);
 			livrosRetirados.add(livroRetirado);
-			System.out.println("O livro " + livroRetirado.getNome() + " foi retirado com sucesso! Boa leitura!");
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT +  "O livro " + livroRetirado.getNome() + " foi retirado com sucesso! Boa leitura!");
 			LocalDate dataDevolucao = LocalDate.now().plusWeeks(1);
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "AVISO! Data de devolução: até " + fmt.format(dataDevolucao) + Cores.TEXT_RESET);
 		} else if(foiDevolvido == true) {
-			System.out.println("O livro " + livroRetirado.getNome() + " já foi retirado!");
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroRetirado.getNome() + " já foi retirado!");
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Nenhum livro com o código " + cod + " foi encontrado!" + Cores.TEXT_RESET);
 		}
@@ -100,9 +100,9 @@ public class Biblioteca extends Estante {
 		}
 		
 		if(livroEncontrado != null && foiDevolvido == false) {
-			System.out.println("Livro encontrado, nome: " + livroEncontrado.getNome() + ", código: " + livroEncontrado.getCodigo());
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Livro encontrado, nome: " + livroEncontrado.getNome() + ", código: " + livroEncontrado.getCodigo());
 		} else if(foiDevolvido == true) {
-			System.out.println("O livro " + livroEncontrado.getNome() + " já foi retirado!");
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroEncontrado.getNome() + " já foi retirado!");
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Não foi encontrado nenhum livro com o código: " + cod + Cores.TEXT_RESET);
 		}

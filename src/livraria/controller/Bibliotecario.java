@@ -10,24 +10,24 @@ import livraria.repository.Cadastro;
 import livraria.util.Cores;
 
 public class Bibliotecario implements Cadastro {
-	private String Bibliotecario;
+	private String Usuario;
 	private int senha;
 	private int numero = 0;
 	private List<Aluno> alunos = new ArrayList<>();
 	
 	public Bibliotecario() {}
 
-	public Bibliotecario(String Bibliotecario, int senha) {
-		this.Bibliotecario = Bibliotecario;
+	public Bibliotecario(String Usuario, int senha) {
+		this.Usuario = Usuario;
 		this.senha = senha;
 	}
 
-	public String getBibliotecario() {
-		return Bibliotecario;
+	public String getUsuario() {
+		return Usuario;
 	}
 
-	public void setBibliotecario(String Bibliotecario) {
-		this.Bibliotecario = Bibliotecario;
+	public void setUsuario(String Bibliotecario) {
+		this.Usuario = Bibliotecario;
 	}
 
 	public int getSenha() {
@@ -39,8 +39,8 @@ public class Bibliotecario implements Cadastro {
 	}
 
 	@Override
-	public boolean verificarSenha(String Bibliotecario, int senha) {
-		if(Bibliotecario.equals("Admin") && senha == 123) {
+	public boolean verificarSenha(String Usuario, int senha) {
+		if(Usuario.equals("Admin") && senha == 123) {
 			aguardarSenha();
 			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login feito com sucesso!" + Cores.TEXT_RESET);
 			keyPress();
