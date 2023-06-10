@@ -13,9 +13,7 @@ public class Biblioteca extends Estante {
 	private List<Livro> livrosRetirados = new ArrayList<>();
 	int numero = 3;
 	
-	public Biblioteca() {
-		
-	}
+	public Biblioteca() {}
 	
 	public Biblioteca(List<Livro> livros) {
 		super(livros);
