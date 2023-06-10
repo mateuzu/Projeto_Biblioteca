@@ -1,17 +1,16 @@
 package application;
 
+import livraria.controller.Usuario;
+import livraria.model.Biblioteca;
+import livraria.model.Livro;
+import livraria.util.Cores;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-import livraria.controller.Usuario;
-import livraria.model.Biblioteca;
-import livraria.model.Livro;
-import livraria.util.Cores;
-
-public class TestaBiblioteca {
+public class Menu {
 
 	public static void main(String[] args) {
 
@@ -23,7 +22,7 @@ public class TestaBiblioteca {
 		livros.add(new Livro("O alquimista", 3));
 		Biblioteca b1 = new Biblioteca(livros);
 
-		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Bem vindo à biblioteca!" + Cores.TEXT_RESET);
+		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "BEM VINDO À BIBLIOTECA!" + Cores.TEXT_RESET);
 		System.out.print("Informe seu usuário: ");
 		String usuario = sc.nextLine();
 		System.out.print("Informe sua senha: ");
