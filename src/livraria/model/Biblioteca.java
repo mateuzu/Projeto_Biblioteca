@@ -136,6 +136,7 @@ public class Biblioteca extends Estante {
 	}
 
 	public void aguardar() {
+<<<<<<< HEAD
 		System.out.println("Aguardando...");
 		try {
 			Thread.sleep(1000);
@@ -145,4 +146,15 @@ public class Biblioteca extends Estante {
 			return;
 		}
 	}
+=======
+        System.out.println("Aguarde...");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        	Thread.currentThread().interrupt(); 
+            System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Erro inesperado!");
+            return;
+        }
+    }
+>>>>>>> 813617deeb956a474ad46afc6e80e164f5d430e1
 }
