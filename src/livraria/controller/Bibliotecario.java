@@ -42,11 +42,11 @@ public class Bibliotecario implements Cadastro {
 	public boolean verificarSenha(String Bibliotecario, int senha) {
 		if(Bibliotecario.equals("teste") && senha == 123) {
 			aguardarSenha();
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin sucedido!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login sucedido!" + Cores.TEXT_RESET);
 			keyPress();
 			return true;
 		} else {
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "\nLogin incorreto, verique o usuário ou senha!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Login incorreto, entre com usuário/senha corretos!\n" + Cores.TEXT_RESET);
 			return false;
 		}
 	}
@@ -85,9 +85,8 @@ public class Bibliotecario implements Cadastro {
 		}
 	}
 	
-	public static void keyPress() {
+	public void keyPress() {
 		try {
-<<<<<<< HEAD
 			System.out.println(Cores.TEXT_RESET + "Pressione enter para continuar...");
 			int key = System.in.read();
 			if (key != '\n') {
@@ -96,16 +95,6 @@ public class Bibliotecario implements Cadastro {
 		} catch (IOException e) {
 			System.out.println("Erro de entrada/saída ocorreu ao aguardar a tecla Enter!");
 		}
-=======
-            System.out.println(Cores.TEXT_RESET + "Pressione enter para continuar...");
-            int key = System.in.read();
-            if (key != '\n') {
-                System.out.println("Você pressionou uma tecla diferente de Enter!");
-            }
-        } catch (IOException e) {
-            System.out.println("Erro de entrada/saída ocorreu ao aguardar a tecla Enter!");
-        }
->>>>>>> 3219b3c7a61ac39d0b3dd177acd805a8cdc84886
 	}
 	
 	public static void aguardarSenha() {
