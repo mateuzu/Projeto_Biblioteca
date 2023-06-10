@@ -4,7 +4,6 @@ import livraria.controller.Bibliotecario;
 import livraria.model.Biblioteca;
 import livraria.model.Livro;
 import livraria.util.Cores;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,18 +21,18 @@ public class Menu {
 		livros.add(new Livro("O alquimista", 3));
 		Biblioteca b1 = new Biblioteca(livros);
 
-		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "BEM VINDO À BIBLIOTECA!" + Cores.TEXT_RESET);
-		System.out.print("Informe seu usuário: ");
+		System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "BEM VINDO À BIBLIOTECA FUTURISTA!" + Cores.TEXT_RESET);
+		System.out.print(Cores.TEXT_WHITE_BOLD_BRIGHT + "Informe seu usuário: ");
 		String usuario = sc.nextLine();
-		System.out.print("Informe sua senha: ");
+		System.out.print("Informe sua senha: " + Cores.TEXT_RESET);
 		int senha = sc.nextInt();
 		Bibliotecario user = new Bibliotecario(usuario, senha);
 
 		while (user.verificarSenha(usuario, senha) == false) {
-			System.out.print("Informe seu usuário: ");
+			System.out.print(Cores.TEXT_WHITE_BOLD_BRIGHT + "Informe seu usuário: ");
 			sc.nextLine();
 			usuario = sc.nextLine();
-			System.out.print("Informe sua senha: ");
+			System.out.print("Informe sua senha: " + Cores.TEXT_RESET);
 			senha = sc.nextInt();
 		}
 		while (true) {
@@ -56,15 +55,15 @@ public class Menu {
 
 			switch (opcao) {
 			case 1:
-				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Cadastrar aluno: \n" + Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Cadastrar alune: \n" + Cores.TEXT_RESET);
 				sc.nextLine();
-				System.out.print("Informe o nome do aluno: ");
+				System.out.print("Informe o nome do alune: ");
 				String nome = sc.nextLine();
 				user.cadastrarAluno(nome);
 				user.keyPress();
 				break;
 			case 2:
-				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Visualizar cadastro alunos: \n" + Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Visualizar cadastro alunes: \n" + Cores.TEXT_RESET);
 				user.listarCadastros();
 				user.keyPress();
 				break;
@@ -80,7 +79,6 @@ public class Menu {
 				sc.nextLine();
 				System.out.print("Informe o nome do livro: ");
 				String nomeLivro = sc.nextLine();
-
 				b1.adicionarLivro(nomeLivro);
 				user.keyPress();
 				break;
@@ -120,8 +118,7 @@ public class Menu {
 				break;
 			}
 			b1.aguardar();
-		}
-
+		}		
 	}
 
 	public static void encerrar() {

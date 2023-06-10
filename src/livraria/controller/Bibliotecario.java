@@ -40,13 +40,13 @@ public class Bibliotecario implements Cadastro {
 
 	@Override
 	public boolean verificarSenha(String Bibliotecario, int senha) {
-		if(Bibliotecario.equals("teste") && senha == 123) {
+		if(Bibliotecario.equals("Admin") && senha == 123) {
 			aguardarSenha();
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login sucedido!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Login feito com sucesso!" + Cores.TEXT_RESET);
 			keyPress();
 			return true;
 		} else {
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Login incorreto, entre com usuário/senha corretos!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Login incorreto, verifique usuário/senha e tente novamente.\n" + Cores.TEXT_RESET);
 			return false;
 		}
 	}
@@ -55,17 +55,17 @@ public class Bibliotecario implements Cadastro {
 	public void cadastrarAluno(String nome) {
 		Aluno aluno = new Aluno(nome, gerarNumero());
 		alunos.add(aluno);
-		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Aluno " + aluno.getNome() + " cadastrado!" + Cores.TEXT_RESET);
+		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Alune " + aluno.getNome() + " cadastrado!" + Cores.TEXT_RESET);
 		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "Matrícula: " + aluno.getMatricula());
 	}
 		
 	@Override
 	public void listarCadastros() {
 		if(alunos.isEmpty()) {
-			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Nenhum aluno cadastrado!" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Nenhum alune cadastrado!" + Cores.TEXT_RESET);
 		}
 		for(Aluno alunos : alunos) {
-			System.out.println("° Aluno: " + alunos.getNome() + ", matrícula: " + alunos.getMatricula());
+			System.out.println("° Alune: " + alunos.getNome() + ", matrícula: " + alunos.getMatricula());
 		}
 	}
 
@@ -80,7 +80,7 @@ public class Bibliotecario implements Cadastro {
 		Optional<Aluno> testaAluno = Optional.ofNullable(alunoRemovido);
 		if(testaAluno.isPresent()) {
 			alunos.remove(alunoRemovido);
-			System.out.println(Cores.TEXT_BLUE_BOLD_BRIGHT +"O aluno " + alunoRemovido.getNome()
+			System.out.println(Cores.TEXT_BLUE_BOLD_BRIGHT +"O alune " + alunoRemovido.getNome()
 				+ " de matrícula: " + alunoRemovido.getMatricula() + " foi removido!" + Cores.TEXT_RESET);
 		}
 	}
@@ -89,7 +89,7 @@ public class Bibliotecario implements Cadastro {
 		try {
 			System.out.println(Cores.TEXT_RESET + "Pressione enter para continuar...");
 			int key = System.in.read();
-			if (key != '\n') {
+			if (key != 13) {
 	            System.out.println("Você pressionou uma tecla diferente de Enter!");
 	        }
 		} catch (IOException e) {
@@ -103,7 +103,7 @@ public class Bibliotecario implements Cadastro {
             Thread.sleep(1500); 
         } catch (InterruptedException e) {
         	Thread.currentThread().interrupt(); 
-            System.out.println("Erro ao verificar senha!");
+            System.err.println("Erro ao verificar login!");
             return;
         }
     }

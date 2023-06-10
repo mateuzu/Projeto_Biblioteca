@@ -125,7 +125,7 @@ public class Biblioteca extends Estante {
 	}
 	
 	public void aguardar() {
-        System.out.println("Aguardando...");
+        System.out.println("Aguarde...");
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
