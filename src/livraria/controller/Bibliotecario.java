@@ -43,12 +43,12 @@ public class Bibliotecario implements Cadastro {
 	public boolean verificarSenha(String Usuario, int senha) {
 		if (Usuario.equals("Admin") && senha == 123) {
 			aguardarSenha();
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin sucedido!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin realizado com sucesso!\n" + Cores.TEXT_RESET);
 			keyPress();
 			return true;
 		} else {
 			System.out.println(
-					Cores.TEXT_RED_BOLD_BRIGHT + "\nLogin incorreto, verique o usuário ou senha!\n" + Cores.TEXT_RESET);
+					Cores.TEXT_RED_BOLD_BRIGHT + "\nLogin incorreto, verique o usuário e senha e tente novamente.\n" + Cores.TEXT_RESET);
 			return false;
 		}
 	}
