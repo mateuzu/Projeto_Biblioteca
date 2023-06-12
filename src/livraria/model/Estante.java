@@ -16,9 +16,8 @@ public abstract class Estante {
 		return livros;
 	}
 
-	//métodos abstratos
 	public abstract void adicionarLivro (String nome);
-	public abstract void retirarLivro(int cod);
+	public abstract void retirarLivro(int matricula, int cod);
 	public abstract void devolverLivro(int cod);
 	public abstract void encontrarLivro(int cod);
 	public abstract void listarLivros();

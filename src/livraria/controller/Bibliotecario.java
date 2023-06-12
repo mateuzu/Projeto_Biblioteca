@@ -6,11 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 import livraria.model.Aluno;
+import livraria.model.Livro;
 import livraria.repository.Cadastro;
 import livraria.util.Cores;
 
 public class Bibliotecario implements Cadastro {
-	private String Bibliotecario;
+	private String Usuario;
 	private int senha;
 	private int numero = 0;
 	private List<Aluno> alunos = new ArrayList<>();
@@ -18,17 +19,17 @@ public class Bibliotecario implements Cadastro {
 	public Bibliotecario() {
 	}
 
-	public Bibliotecario(String Bibliotecario, int senha) {
-		this.Bibliotecario = Bibliotecario;
+	public Bibliotecario(String Usuario, int senha) {
+		this.Usuario = Usuario;
 		this.senha = senha;
 	}
 
-	public String getBibliotecario() {
-		return Bibliotecario;
+	public String getUsuario() {
+		return Usuario;
 	}
 
-	public void setBibliotecario(String Bibliotecario) {
-		this.Bibliotecario = Bibliotecario;
+	public void setUsuario(String Usuario) {
+		this.Usuario = Usuario;
 	}
 
 	public int getSenha() {
@@ -40,15 +41,15 @@ public class Bibliotecario implements Cadastro {
 	}
 
 	@Override
-	public boolean verificarSenha(String Bibliotecario, int senha) {
-		if (Bibliotecario.equals("teste") && senha == 123) {
+	public boolean verificarSenha(String Usuario, int senha) {
+		if (Usuario.equals("Admin") && senha == 123) {
 			aguardarSenha();
-			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin sucedido!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "\nLogin realizado com sucesso!\n" + Cores.TEXT_RESET);
 			keyPress();
 			return true;
 		} else {
-			System.out.println(
-					Cores.TEXT_RED_BOLD_BRIGHT + "\nLogin incorreto, verique o usuário ou senha!\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT
+					+ "\nLogin incorreto, verique o usuário e senha e tente novamente.\n" + Cores.TEXT_RESET);
 			return false;
 		}
 	}
@@ -83,7 +84,7 @@ public class Bibliotecario implements Cadastro {
 		Optional<Aluno> testaAluno = Optional.ofNullable(alunoRemovido);
 		if (testaAluno.isPresent()) {
 			alunos.remove(alunoRemovido);
-			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "O alune " + alunoRemovido.getNome() + " de matrícula: "
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O alune " + alunoRemovido.getNome() + " de matrícula: "
 					+ alunoRemovido.getMatricula() + " foi removido!" + Cores.TEXT_RESET);
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Não foi encontrado nenhum alune com esta matrícula: "
@@ -117,5 +118,23 @@ public class Bibliotecario implements Cadastro {
 	@Override
 	public int gerarNumero() {
 		return ++numero;
+	}
+
+	@Override
+	public boolean encontrarAluno(int matricula) {
+		Aluno alunoEncontrado = null;
+
+		for (Aluno aluno : alunos) {
+			if (aluno.getMatricula() == matricula) {
+				alunoEncontrado = aluno;
+			}
+		}
+		if (alunoEncontrado != null) {
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O alune que retirou o livro foi: "
+					+ alunoEncontrado.getNome() + Cores.TEXT_RESET);
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

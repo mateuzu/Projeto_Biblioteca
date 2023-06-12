@@ -7,4 +7,5 @@ public interface Cadastro {
 	public void listarCadastros();
 	public void removerAluno(int matricula);
 	public int gerarNumero();
+	public boolean encontrarAluno(int matricula);
 }

@@ -1,11 +1,12 @@
 package livraria.model;
 
 public class Aluno {
-	
+
 	private String nome;
 	private int matricula;
-	
-	public Aluno() {}
+
+	public Aluno() {
+	}
 
 	public Aluno(String nome, int matricula) {
 		this.nome = nome;
@@ -27,5 +28,5 @@ public class Aluno {
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
-	
+
 }
