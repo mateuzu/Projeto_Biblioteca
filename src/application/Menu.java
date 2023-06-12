@@ -27,6 +27,7 @@ public class Menu {
 		System.out.print("Informe sua senha: " + Cores.TEXT_RESET);
 		int senha = sc.nextInt();
 		Bibliotecario user = new Bibliotecario(usuario, senha);
+		b1 = new Biblioteca(livros, user);
 
 		while (user.verificarSenha(usuario, senha) == false) {
 			System.out.print(Cores.TEXT_WHITE_BOLD_BRIGHT + "Informe seu usuário: ");
@@ -36,14 +37,13 @@ public class Menu {
 			senha = sc.nextInt();
 		}
 		while (true) {
-			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT 
-					+ "\n*****************************************"	+ "\n*                 MENU:                 *" 
-					+ "\n* 1 - Cadastrar alune                   *"	+ "\n* 2 - Visualizar cadastros dos alunes   *"
-					+ "\n* 3 - Remover alune                     *"	+ "\n* 4 - Adicionar livro                   *"
-					+ "\n* 5 - Retirar um livro pelo código      *"	+ "\n* 6 - Devolver um livro                 *"
-					+ "\n* 7 - Encontrar um livro pelo código    *" + "\n* 8 - Listar livros disponíveis         *"
-					+ "\n* 9 - Sair                              *" + "\n*****************************************"
-					+ Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "\n*****************************************"
+					+ "\n*                 MENU:                 *" + "\n* 1 - Cadastrar alune                   *"
+					+ "\n* 2 - Visualizar cadastros dos alunes   *" + "\n* 3 - Remover alune                     *"
+					+ "\n* 4 - Adicionar livro                   *" + "\n* 5 - Retirar um livro pelo código      *"
+					+ "\n* 6 - Devolver um livro                 *" + "\n* 7 - Encontrar um livro pelo código    *"
+					+ "\n* 8 - Listar livros disponíveis         *" + "\n* 9 - Sair                              *"
+					+ "\n*****************************************" + Cores.TEXT_RESET);
 			System.out.print("\nEntre com a opção desejada: ");
 			try {
 				opcao = sc.nextInt();
@@ -68,7 +68,7 @@ public class Menu {
 				user.keyPress();
 				break;
 			case 3:
-				System.out.println(Cores.TEXT_BLUE_BOLD_BRIGHT + "Remover alune: \n" + Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Remover alune: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com a matricula do alune que deseja retirar: ");
 				int matricula = sc.nextInt();
 				user.removerAluno(matricula);
@@ -86,7 +86,9 @@ public class Menu {
 				System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "Retirar livro: \n" + Cores.TEXT_RESET);
 				System.out.print("Entre com o código do livro que deseja retirar: ");
 				int cod = sc.nextInt();
-				b1.retirarLivro(cod);
+				System.out.println("Digite a matrícula do alune que deseja retirar o livro:");
+				matricula = sc.nextInt();
+				b1.retirarLivro(cod, matricula);
 				user.keyPress();
 				break;
 			case 6:
@@ -118,7 +120,7 @@ public class Menu {
 				break;
 			}
 			b1.aguardar();
-		}		
+		}
 	}
 
 	public static void encerrar() {

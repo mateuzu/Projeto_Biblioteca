@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import livraria.controller.Bibliotecario;
+import livraria.repository.Cadastro;
 import livraria.util.Cores;
 
 public class Biblioteca extends Estante {
@@ -12,6 +14,7 @@ public class Biblioteca extends Estante {
 	private final DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private List<Livro> livrosRetirados = new ArrayList<>();
 	int numero = 3;
+	private Bibliotecario bibliotecario;
 
 	public Biblioteca() {
 	}
@@ -20,8 +23,21 @@ public class Biblioteca extends Estante {
 		super(livros);
 	}
 
+	public Biblioteca(List<Livro> livros, Bibliotecario bibliotecario) {
+		super(livros);
+		this.bibliotecario = bibliotecario;
+	}
+
 	public List<Livro> getLivros() {
 		return super.getLivros();
+	}
+
+	public Bibliotecario getBibliotecario() {
+		return bibliotecario;
+	}
+
+	public void setBibliotecario(Bibliotecario bibliotecario) {
+		this.bibliotecario = bibliotecario;
 	}
 
 	@Override
@@ -35,7 +51,7 @@ public class Biblioteca extends Estante {
 	}
 
 	@Override
-	public void retirarLivro(int cod) {
+	public void retirarLivro(int cod, int matricula) {
 		Livro livroRetirado = null;
 		boolean foiDevolvido = false;
 
@@ -52,17 +68,20 @@ public class Biblioteca extends Estante {
 			}
 		}
 
-		if (livroRetirado != null && foiDevolvido == false) {
+		if (livroRetirado != null && foiDevolvido == false && bibliotecario.encontrarAluno(matricula) == true) {
+
 			super.getLivros().remove(livroRetirado);
 			livrosRetirados.add(livroRetirado);
 			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O livro " + livroRetirado.getNome()
-					+ " foi retirado com sucesso!" + Cores.TEXT_RESET);
+					+ " foi retirado com sucesso! " + Cores.TEXT_RESET);
 			LocalDate dataDevolucao = LocalDate.now().plusWeeks(1);
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "AVISO! Data de devolução: até " + fmt.format(dataDevolucao)
 					+ Cores.TEXT_RESET);
 		} else if (foiDevolvido == true) {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "O livro " + livroRetirado.getNome() + " já foi retirado!"
 					+ Cores.TEXT_RESET);
+		} else if (bibliotecario.encontrarAluno(matricula) == false) {
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Não existe aluno com esta matrícula" + Cores.TEXT_RESET);
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Nenhum livro com o código " + cod + " foi encontrado!"
 					+ Cores.TEXT_RESET);

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import livraria.model.Aluno;
+import livraria.model.Livro;
 import livraria.repository.Cadastro;
 import livraria.util.Cores;
 
@@ -47,8 +48,8 @@ public class Bibliotecario implements Cadastro {
 			keyPress();
 			return true;
 		} else {
-			System.out.println(
-					Cores.TEXT_RED_BOLD_BRIGHT + "\nLogin incorreto, verique o usuário e senha e tente novamente.\n" + Cores.TEXT_RESET);
+			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT
+					+ "\nLogin incorreto, verique o usuário e senha e tente novamente.\n" + Cores.TEXT_RESET);
 			return false;
 		}
 	}
@@ -83,7 +84,7 @@ public class Bibliotecario implements Cadastro {
 		Optional<Aluno> testaAluno = Optional.ofNullable(alunoRemovido);
 		if (testaAluno.isPresent()) {
 			alunos.remove(alunoRemovido);
-			System.out.println(Cores.TEXT_CYAN_BOLD_BRIGHT + "O alune " + alunoRemovido.getNome() + " de matrícula: "
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O alune " + alunoRemovido.getNome() + " de matrícula: "
 					+ alunoRemovido.getMatricula() + " foi removido!" + Cores.TEXT_RESET);
 		} else {
 			System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Não foi encontrado nenhum alune com esta matrícula: "
@@ -117,5 +118,23 @@ public class Bibliotecario implements Cadastro {
 	@Override
 	public int gerarNumero() {
 		return ++numero;
+	}
+
+	@Override
+	public boolean encontrarAluno(int matricula) {
+		Aluno alunoEncontrado = null;
+
+		for (Aluno aluno : alunos) {
+			if (aluno.getMatricula() == matricula) {
+				alunoEncontrado = aluno;
+			}
+		}
+		if (alunoEncontrado != null) {
+			System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "O alune que retirou o livro foi: "
+					+ alunoEncontrado.getNome() + Cores.TEXT_RESET);
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
